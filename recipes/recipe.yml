@@ -26,32 +26,17 @@ modules:
         - micro
         - starship
         - headsetcontrol
-        - rclone
-        - qemu-kvm
         - steam
+        - distrobox
+        - docker
+        
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
         # "firefox" is the main package, "firefox-langpacks" is a dependency
-        #- waydroid
-        #- Sunshine
-        #- webapp-manager
         - firefox
         - firefox-langpacks
-
-  - type: default-flatpaks
-    configurations:
-      - notify: false # Send notification after install/uninstall is finished (true/false)
-        scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-      - scope: user # Also add Flathub user repo, but no user packages
-  - type: systemd
-    # this example disables automatic flatpak updates and enables a custom service unit for all users
-    system:
-      enabled:
-        - libvirt.service
+        - toolbox
 
   - type: os-release
     properties:
